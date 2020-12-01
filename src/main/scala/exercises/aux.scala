@@ -14,6 +14,6 @@ object aux {
       IO(source.close()).handleErrorWith(_ => IO.unit)
     }
 
-  def lines(source: BufferedSource): List[String] = source.getLines().toList
+  def lines(source: BufferedSource): Iterator[String] = source.getLines()
 
 }
