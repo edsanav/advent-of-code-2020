@@ -1,6 +1,6 @@
 package exercises
 
-import cats.Monad
+import cats.effect.Sync
 
 import scala.annotation.tailrec
 
@@ -29,11 +29,11 @@ object day1 {
       }
   }
 
-  def run[F[_]](in: Iterator[String])(implicit m: Monad[F]): F[Unit] = {
+  def run[F[_]: Sync](in: Iterator[String]): F[Unit] = {
     val input   = in.to(LazyList).map(_.toInt)
     val result1 = part1(input).map { case (x, y) => x * y }
     val result2 = part2(input).map { case (x, y, z) => println((x, y, z)); x * y * z }
-    m.pure(println((result1, result2)))
+    Sync[F].delay(println((result1, result2)))
   }
 
 }
