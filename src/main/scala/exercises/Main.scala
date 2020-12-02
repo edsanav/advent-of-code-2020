@@ -10,6 +10,7 @@ object Main extends IOApp {
   def executeIO(moduleId: String): Iterator[String] => IO[Unit] =
     moduleId match {
       case "1" => day1.run[IO]
+      case "2" => day2.run[IO]
       case _   => (_) => IO(println(s"Unable to find module ${moduleId}"))
     }
 
