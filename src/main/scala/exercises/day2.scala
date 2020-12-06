@@ -2,10 +2,12 @@ package exercises
 
 import cats.effect.Sync
 
+import scala.util.matching.Regex
+
 object day2 {
 
   //"1-8 : tstztmttgtttfvt"
-  val pattern = raw"(\d{1,2})-(\d{1,2})\s(.):\s(.*)".r
+  val pattern: Regex = raw"(\d{1,2})-(\d{1,2})\s(.):\s(.*)".r
 
   case class PolicyData(letter: Char, i: Int, j: Int)
 

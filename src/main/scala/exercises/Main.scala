@@ -12,6 +12,7 @@ object Main extends IOApp {
       case "1" => day1.run[IO]
       case "2" => day2.run[IO]
       case "3" => day3.run[IO]
+      case "4" => day4.run[IO]
       case _   => (_) => IO(println(s"Unable to find module ${moduleId}"))
     }
 
